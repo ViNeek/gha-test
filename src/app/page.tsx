@@ -1,7 +1,5 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import About from './pages/about.tsx'
-import Link from 'next/link';
 
 async function getPosts() {
   //const res = await fetch('https://...')
