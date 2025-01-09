@@ -2,6 +2,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const dateVariable = Date().toLocaleString()
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -15,7 +17,7 @@ export default function Home() {
         />
         <ol>
           <li>
-            Get started by editing <code>src/app/page.tsx</code>.
+            {dateVariable} Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
