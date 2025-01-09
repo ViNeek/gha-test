@@ -1,9 +1,29 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import About from './pages/about.tsx'
+import Link from 'next/link';
 
-export default function Home() {
+async function getPosts() {
+  //const res = await fetch('https://...')
+  const res = await fetch('https://raw.githubusercontent.com/KhronosGroup/glTF-Render-Fidelity/refs/heads/main/test/config.json')
+
+  const posts = await res.json()
+  return posts
+}
+
+export default async function Home() {
   const dateVariable = Date().toLocaleString()
 
+  // Fetch data directly in a Server Component
+  const recentPosts = await getPosts()
+  //console.log(JSON.stringify(recentPosts));
+  const luda = JSON.stringify(recentPosts);
+
+  return (
+    <div>
+      <h1>Welcome to the Home Page + {luda}</h1>
+    </div>
+  );
   return (
     <div className={styles.page}>
       <main className={styles.main}>
